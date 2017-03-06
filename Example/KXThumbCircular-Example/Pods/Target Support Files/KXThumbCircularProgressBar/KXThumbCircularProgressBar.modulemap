@@ -1,0 +1,6 @@
+framework module KXThumbCircularProgressBar {
+  umbrella header "KXThumbCircularProgressBar-umbrella.h"
+
+  export *
+  module * { export * }
+}

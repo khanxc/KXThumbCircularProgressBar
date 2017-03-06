@@ -1,0 +1,6 @@
+framework module Pods_KXThumbCircular_Example {
+  umbrella header "Pods-KXThumbCircular-Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

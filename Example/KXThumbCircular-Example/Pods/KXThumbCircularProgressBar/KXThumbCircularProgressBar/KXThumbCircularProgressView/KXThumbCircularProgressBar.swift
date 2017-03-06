@@ -70,10 +70,7 @@ let π: CGFloat = CGFloat(M_PI)
 			endAngle: endAngle,
 			clockwise: true)
 		ringLayer.path = arcPath.cgPath
-        
-        //make it public on next push
-        ringLayer.strokeColor = ringForegroundColour.cgColor
-        
+		// ringLayer.strokeColor = ringForegroundColour.CGColor
 		ringLayer.fillColor = UIColor.clear.cgColor
 		ringLayer.lineWidth = foreGroundArcWidth
 		ringLayer.strokeEnd = 0.0
