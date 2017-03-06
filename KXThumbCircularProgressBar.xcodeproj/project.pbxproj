@@ -10,6 +10,9 @@
 		6C21F0C61E6D21B80027C402 /* KXThumbCircularProgressBar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C21F0BC1E6D21B80027C402 /* KXThumbCircularProgressBar.framework */; };
 		6C21F0CB1E6D21B80027C402 /* KXThumbCircularProgressBarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C21F0CA1E6D21B80027C402 /* KXThumbCircularProgressBarTests.swift */; };
 		6C21F0CD1E6D21B80027C402 /* KXThumbCircularProgressBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C21F0BF1E6D21B80027C402 /* KXThumbCircularProgressBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C21F0D81E6D21D70027C402 /* KXThumbCircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C21F0D71E6D21D70027C402 /* KXThumbCircularProgressBar.swift */; };
+		6C21F0DB1E6D21FD0027C402 /* CustomExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C21F0DA1E6D21FD0027C402 /* CustomExtensions.swift */; };
+		6C21F0DE1E6D232C0027C402 /* piz10.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C21F0DD1E6D232C0027C402 /* piz10.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +32,9 @@
 		6C21F0C51E6D21B80027C402 /* KXThumbCircularProgressBarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KXThumbCircularProgressBarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C21F0CA1E6D21B80027C402 /* KXThumbCircularProgressBarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KXThumbCircularProgressBarTests.swift; sourceTree = "<group>"; };
 		6C21F0CC1E6D21B80027C402 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C21F0D71E6D21D70027C402 /* KXThumbCircularProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KXThumbCircularProgressBar.swift; sourceTree = "<group>"; };
+		6C21F0DA1E6D21FD0027C402 /* CustomExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomExtensions.swift; sourceTree = "<group>"; };
+		6C21F0DD1E6D232C0027C402 /* piz10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = piz10.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +59,9 @@
 		6C21F0B21E6D21B80027C402 = {
 			isa = PBXGroup;
 			children = (
+				6C21F0DC1E6D231C0027C402 /* Assets */,
+				6C21F0D91E6D21EB0027C402 /* Extensions */,
+				6C21F0D61E6D21C10027C402 /* KXThumbCircularProgressView */,
 				6C21F0BE1E6D21B80027C402 /* KXThumbCircularProgressBar */,
 				6C21F0C91E6D21B80027C402 /* KXThumbCircularProgressBarTests */,
 				6C21F0BD1E6D21B80027C402 /* Products */,
@@ -84,6 +93,30 @@
 				6C21F0CC1E6D21B80027C402 /* Info.plist */,
 			);
 			path = KXThumbCircularProgressBarTests;
+			sourceTree = "<group>";
+		};
+		6C21F0D61E6D21C10027C402 /* KXThumbCircularProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				6C21F0D71E6D21D70027C402 /* KXThumbCircularProgressBar.swift */,
+			);
+			name = KXThumbCircularProgressView;
+			sourceTree = "<group>";
+		};
+		6C21F0D91E6D21EB0027C402 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6C21F0DA1E6D21FD0027C402 /* CustomExtensions.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		6C21F0DC1E6D231C0027C402 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				6C21F0DD1E6D232C0027C402 /* piz10.png */,
+			);
+			name = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +182,7 @@
 					6C21F0BB1E6D21B80027C402 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 8TA54VAA35;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					6C21F0C41E6D21B80027C402 = {
@@ -181,6 +215,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C21F0DE1E6D232C0027C402 /* piz10.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,6 +233,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C21F0DB1E6D21FD0027C402 /* CustomExtensions.swift in Sources */,
+				6C21F0D81E6D21D70027C402 /* KXThumbCircularProgressBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,7 +298,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -308,7 +345,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -322,7 +359,8 @@
 		6C21F0D11E6D21B80027C402 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 8TA54VAA35;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -334,6 +372,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.appyte.KXThumbCircularProgressBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -341,7 +380,8 @@
 		6C21F0D21E6D21B80027C402 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 8TA54VAA35;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -360,6 +400,7 @@
 		6C21F0D41E6D21B80027C402 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 8TA54VAA35;
 				INFOPLIST_FILE = KXThumbCircularProgressBarTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -372,6 +413,7 @@
 		6C21F0D51E6D21B80027C402 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 8TA54VAA35;
 				INFOPLIST_FILE = KXThumbCircularProgressBarTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -400,6 +442,7 @@
 				6C21F0D21E6D21B80027C402 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6C21F0D31E6D21B80027C402 /* Build configuration list for PBXNativeTarget "KXThumbCircularProgressBarTests" */ = {
 			isa = XCConfigurationList;
@@ -408,6 +451,7 @@
 				6C21F0D51E6D21B80027C402 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
