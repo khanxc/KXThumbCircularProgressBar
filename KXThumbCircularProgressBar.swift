@@ -139,7 +139,7 @@ let π: CGFloat = CGFloat(M_PI)
 			pathAnimation.rotationMode = kCAAnimationRotateAuto
 			pathAnimation.fillMode = kCAFillModeForwards
 			pathAnimation.isRemovedOnCompletion = false
-			thumbLayer.add(pathAnimation, forKey: "movingMeterTip")
+			thumbLayer.add(pathAnimation, forKey: "movingMeterTip") //need to refactor
 		}
 
 		let animation = CABasicAnimation(keyPath: "strokeEnd")
