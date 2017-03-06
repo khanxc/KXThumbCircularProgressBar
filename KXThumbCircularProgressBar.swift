@@ -34,7 +34,7 @@ let π: CGFloat = CGFloat(M_PI)
  
     
 
-   @IBInspectable  public var arcMargin: CGFloat                           = 50
+   @IBInspectable  public var arcMargin: CGFloat                           = 75
     
     
        // must be between [0,1]
