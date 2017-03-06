@@ -32,9 +32,9 @@
 		6C21F0C51E6D21B80027C402 /* KXThumbCircularProgressBarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KXThumbCircularProgressBarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C21F0CA1E6D21B80027C402 /* KXThumbCircularProgressBarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KXThumbCircularProgressBarTests.swift; sourceTree = "<group>"; };
 		6C21F0CC1E6D21B80027C402 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6C21F0D71E6D21D70027C402 /* KXThumbCircularProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KXThumbCircularProgressBar.swift; sourceTree = "<group>"; };
-		6C21F0DA1E6D21FD0027C402 /* CustomExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomExtensions.swift; sourceTree = "<group>"; };
-		6C21F0DD1E6D232C0027C402 /* piz10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = piz10.png; sourceTree = "<group>"; };
+		6C21F0D71E6D21D70027C402 /* KXThumbCircularProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KXThumbCircularProgressBar.swift; path = KXThumbCircularProgressBar/KXThumbCircularProgressBar.swift; sourceTree = "<group>"; };
+		6C21F0DA1E6D21FD0027C402 /* CustomExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomExtensions.swift; path = KXThumbCircularProgressBar/CustomExtensions.swift; sourceTree = "<group>"; };
+		6C21F0DD1E6D232C0027C402 /* piz10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = piz10.png; path = KXThumbCircularProgressBar/piz10.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
