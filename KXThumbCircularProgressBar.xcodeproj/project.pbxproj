@@ -59,9 +59,6 @@
 		6C21F0B21E6D21B80027C402 = {
 			isa = PBXGroup;
 			children = (
-				6C21F0D61E6D21C10027C402 /* KXThumbCircularProgressView */,
-				6C21F0D91E6D21EB0027C402 /* Extensions */,
-				6C21F0DC1E6D231C0027C402 /* Assets */,
 				6C21F0BE1E6D21B80027C402 /* KXThumbCircularProgressBar */,
 				6C21F0C91E6D21B80027C402 /* KXThumbCircularProgressBarTests */,
 				6C21F0BD1E6D21B80027C402 /* Products */,
@@ -80,6 +77,9 @@
 		6C21F0BE1E6D21B80027C402 /* KXThumbCircularProgressBar */ = {
 			isa = PBXGroup;
 			children = (
+				6C21F0D61E6D21C10027C402 /* KXThumbCircularProgressView */,
+				6C21F0D91E6D21EB0027C402 /* Extensions */,
+				6C21F0DC1E6D231C0027C402 /* Assets */,
 				6C21F0BF1E6D21B80027C402 /* KXThumbCircularProgressBar.h */,
 				6C21F0C01E6D21B80027C402 /* Info.plist */,
 			);
@@ -101,6 +101,7 @@
 				6C21F0D71E6D21D70027C402 /* KXThumbCircularProgressBar.swift */,
 			);
 			name = KXThumbCircularProgressView;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		6C21F0D91E6D21EB0027C402 /* Extensions */ = {
@@ -109,6 +110,7 @@
 				6C21F0DA1E6D21FD0027C402 /* CustomExtensions.swift */,
 			);
 			name = Extensions;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		6C21F0DC1E6D231C0027C402 /* Assets */ = {
@@ -117,6 +119,7 @@
 				6C21F0DD1E6D232C0027C402 /* piz10.png */,
 			);
 			name = Assets;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
