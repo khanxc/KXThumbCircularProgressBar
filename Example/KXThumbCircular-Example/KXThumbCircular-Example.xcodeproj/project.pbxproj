@@ -13,6 +13,8 @@
 		6C45BDFE1E6D6FCB007D4ACF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C45BDFC1E6D6FCB007D4ACF /* Main.storyboard */; };
 		6C45BE001E6D6FCB007D4ACF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C45BDFF1E6D6FCB007D4ACF /* Assets.xcassets */; };
 		6C45BE031E6D6FCB007D4ACF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C45BE011E6D6FCB007D4ACF /* LaunchScreen.storyboard */; };
+		6C8169B31E6D7BB700318EE6 /* finger.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C8169B21E6D7BB700318EE6 /* finger.png */; };
+		6C8169B51E6D7BE400318EE6 /* twit.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C8169B41E6D7BE400318EE6 /* twit.png */; };
 		6CCBFB621E6D70FF00EED4D1 /* Circled Right-96.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CCBFB611E6D70FF00EED4D1 /* Circled Right-96.png */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +27,8 @@
 		6C45BDFF1E6D6FCB007D4ACF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6C45BE021E6D6FCB007D4ACF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6C45BE041E6D6FCB007D4ACF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C8169B21E6D7BB700318EE6 /* finger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = finger.png; sourceTree = "<group>"; };
+		6C8169B41E6D7BE400318EE6 /* twit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twit.png; sourceTree = "<group>"; };
 		6CCBFB611E6D70FF00EED4D1 /* Circled Right-96.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Circled Right-96.png"; sourceTree = "<group>"; };
 		9D77441866F8BA2BA1651EE7 /* Pods_KXThumbCircular_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KXThumbCircular_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC4A4624312B8473FA899D8C /* Pods-KXThumbCircular-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KXThumbCircular-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KXThumbCircular-Example/Pods-KXThumbCircular-Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -80,6 +84,8 @@
 		6C45BDF71E6D6FCB007D4ACF /* KXThumbCircular-Example */ = {
 			isa = PBXGroup;
 			children = (
+				6C8169B41E6D7BE400318EE6 /* twit.png */,
+				6C8169B21E6D7BB700318EE6 /* finger.png */,
 				6CCBFB611E6D70FF00EED4D1 /* Circled Right-96.png */,
 				6C45BDF81E6D6FCB007D4ACF /* AppDelegate.swift */,
 				6C45BDFA1E6D6FCB007D4ACF /* ViewController.swift */,
@@ -156,8 +162,10 @@
 			files = (
 				6C45BE031E6D6FCB007D4ACF /* LaunchScreen.storyboard in Resources */,
 				6C45BE001E6D6FCB007D4ACF /* Assets.xcassets in Resources */,
+				6C8169B31E6D7BB700318EE6 /* finger.png in Resources */,
 				6C45BDFE1E6D6FCB007D4ACF /* Main.storyboard in Resources */,
 				6CCBFB621E6D70FF00EED4D1 /* Circled Right-96.png in Resources */,
+				6C8169B51E6D7BE400318EE6 /* twit.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
