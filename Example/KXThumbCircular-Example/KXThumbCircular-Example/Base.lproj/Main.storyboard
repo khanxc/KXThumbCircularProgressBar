@@ -30,10 +30,10 @@
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isthumbImageAvailable" value="YES"/>
                                     <userDefinedRuntimeAttribute type="color" keyPath="ringBackgroundColour">
-                                        <color key="value" red="0.89150017079999999" green="0.027715809649999999" blue="0.35692698210000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.83320165830000004" green="0.85855597340000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="ringForegroundColour">
-                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="value" red="0.89150017079999999" green="0.027715809649999999" blue="0.35692698210000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="backGroundArcWidth">
                                         <real key="value" value="8"/>
@@ -48,7 +48,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="gqp-Go-JS9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="Mjt-5o-VTT"/>
                             <constraint firstItem="gqp-Go-JS9" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="a97-7E-DaK"/>
