@@ -128,7 +128,7 @@ let π: CGFloat = CGFloat(M_PI)
 
 			thumbImageView.image = thumbImage!
 			thumbLayer.contents = thumbImageView.image?.cgImage
-			thumbLayer.anchorPoint = CGPoint(x: 0.7, y: 0.7)
+			thumbLayer.anchorPoint = CGPoint(x: 0.5, y: 0.7)
 			thumbLayer.frame = CGRect(x: 0.0, y: 0.0, width: thumbImageView.image!.size.width, height: thumbImageView.image!.size.height)
 			thumbLayer.transform = CATransform3DMakeAffineTransform(CGAffineTransform(rotationAngle: CGFloat(M_PI_2)))
 

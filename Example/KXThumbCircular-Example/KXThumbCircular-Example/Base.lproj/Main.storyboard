@@ -41,7 +41,7 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="foreGroundArcWidth">
                                         <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="thumbImage" value="finger.png"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="thumbImage" value="rkt.png"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="arcMargin">
                                         <real key="value" value="75"/>
                                     </userDefinedRuntimeAttribute>
@@ -65,6 +65,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="finger.png" width="50" height="50"/>
+        <image name="rkt.png" width="48" height="48"/>
     </resources>
 </document>
