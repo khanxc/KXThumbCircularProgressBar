@@ -2,9 +2,12 @@
 A Circular progress bar with a progress thumb(icon) written in pure Swift.
 Customise your own thumb images to the Circular progress bar.
 
-![Alt Text](https://github.com/khanxc/KXThumbCircularProgressBar/blob/master/Example/KXThumbCircular-Example/KXThumbCircular-Example/twit.gif)
 
-![Alt Text](https://github.com/khanxc/KXThumbCircularProgressBar/blob/master/Example/KXThumbCircular-Example/KXThumbCircular-Example/fing.gif)
+![Alt Text](https://github.com/khanxc/KXThumbCircularProgressBar/blob/master/Example/KXThumbCircular-Example/KXThumbCircular-Example/rkt.gif)
+
+
+![Alt Text](https://github.com/khanxc/KXThumbCircularProgressBar/blob/master/Example/KXThumbCircular-Example/KXThumbCircular-Example/fal.gif)
+
 
 
 #Features
