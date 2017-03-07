@@ -23,11 +23,21 @@ Customise your own thumb images to the Circular progress bar.
 ##Cocoapods##
 You can use [CocoaPods](http://cocoapods.org/pods/KXThumbCircularProgressBar) to install *KXThumbCircularProgressBar* by adding it to your podfile
 
-```pod 'KXThumbCircularProgressBar' ```
+```
+pod 'KXThumbCircularProgressBar'
+```
+And import the header and use it in the ViewController where you use this framework
 
-And import the header in the ViewController where you use this framework
+```swift 
+  import KXThumbCircularProgressBar
+  
+  @IBOutlet weak var kx: KXThumbCircularProgressBar!
 
-```import KXThumbCircularProgressBar```
+  override func viewDidLoad() {
+        super.viewDidLoad()
+        kx.animateScale = 0.75 //value between 0 to 1
+    } 
+```
 
 #License
 Distributed under MIT license. Please see [LICENSE](https://github.com/khanxc/KXThumbCircularProgressBar/blob/master/LICENSE.md) file.
