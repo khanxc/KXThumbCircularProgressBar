@@ -37,8 +37,8 @@
 		6C21F0D71E6D21D70027C402 /* KXThumbCircularProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KXThumbCircularProgressBar.swift; path = KXThumbCircularProgressBar/KXThumbCircularProgressView/KXThumbCircularProgressBar.swift; sourceTree = "<group>"; };
 		6C21F0DA1E6D21FD0027C402 /* CustomExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomExtensions.swift; path = KXThumbCircularProgressBar/KXThumbCircularProgressView/CustomExtensions.swift; sourceTree = "<group>"; };
 		6C21F0DD1E6D232C0027C402 /* piz10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = piz10.png; path = KXThumbCircularProgressBar/KXThumbCircularProgressView/piz10.png; sourceTree = "<group>"; };
-		6CCD87F41E6E7B88004756D1 /* fal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fal.png; sourceTree = "<group>"; };
-		6CCD87F61E6E7B8C004756D1 /* rkt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rkt.png; sourceTree = "<group>"; };
+		6CCD87F41E6E7B88004756D1 /* fal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fal.png; path = KXThumbCircularProgressBar/KXThumbCircularProgressView/fal.png; sourceTree = "<group>"; };
+		6CCD87F61E6E7B8C004756D1 /* rkt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rkt.png; path = KXThumbCircularProgressBar/KXThumbCircularProgressView/rkt.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
