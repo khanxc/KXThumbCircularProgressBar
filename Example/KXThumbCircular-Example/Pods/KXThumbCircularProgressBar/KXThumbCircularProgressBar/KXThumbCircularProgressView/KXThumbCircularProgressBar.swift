@@ -31,13 +31,13 @@ let π: CGFloat = CGFloat(M_PI)
     @IBInspectable public var backGroundArcWidth: CGFloat   = 8
     @IBInspectable public var isthumbImageAvailable: Bool = false
     @IBInspectable public var thumbImage: UIImage?
- 
-    
+    @IBInspectable public var arcStartAngle: CGFloat = 120
+    @IBInspectable public var arcEndAngle: CGFloat = 60
 
-   @IBInspectable  public var arcMargin: CGFloat                           = 75
+    @IBInspectable public var arcMargin: CGFloat = 75
     
     
-       // must be between [0,1]
+       // must be between [0,100]
     
     public var animateScale: Double = 0.0
     
@@ -60,8 +60,9 @@ let π: CGFloat = CGFloat(M_PI)
 		let center = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
 		let radius: CGFloat = max(bounds.width - arcMargin, bounds.height - arcMargin)
 		
-		let startAngle: CGFloat = 2 * π / 3
-		let endAngle: CGFloat = π / 3
+        let rotationDiff = 360 - abs((arcStartAngle - arcEndAngle))
+		let startAngle: CGFloat = arcStartAngle.degreesToRadians
+		let endAngle: CGFloat = (((CGFloat(self.animateScale) * abs(rotationDiff)) / 100) + arcStartAngle).degreesToRadians
 		
 		arcPath = UIBezierPath(
 			arcCenter: center,
@@ -90,8 +91,8 @@ let π: CGFloat = CGFloat(M_PI)
 		let center = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
 		let radius: CGFloat = max(bounds.width - arcMargin, bounds.height - arcMargin)
 
-		let startAngle: CGFloat = 2 * π / 3
-		let endAngle: CGFloat = π / 3
+		let startAngle: CGFloat = arcStartAngle.degreesToRadians
+		let endAngle: CGFloat = arcEndAngle.degreesToRadians
 
 		let path = UIBezierPath(
 			arcCenter: center,
@@ -114,8 +115,9 @@ let π: CGFloat = CGFloat(M_PI)
 		let center = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
 		let radius: CGFloat = max(bounds.width - arcMargin, bounds.height - arcMargin)
 
-		let startAngle: CGFloat = 2 * π / 3
-		let endAngle: CGFloat = CGFloat((loaderValue * 3 * 100) + 120) * CGFloat(M_PI) / 180.0
+        let rotationDiff = 360 - abs((arcStartAngle - arcEndAngle))
+		let startAngle: CGFloat = arcStartAngle.degreesToRadians
+		let endAngle: CGFloat = (((loaderValue * abs(rotationDiff)) / 100) + arcStartAngle).degreesToRadians
 
 		let thumbPath = UIBezierPath(
 			arcCenter: center,
@@ -128,7 +130,7 @@ let π: CGFloat = CGFloat(M_PI)
 
 			thumbImageView.image = thumbImage!
 			thumbLayer.contents = thumbImageView.image?.cgImage
-			thumbLayer.anchorPoint = CGPoint(x: 0.7, y: 0.7)
+			thumbLayer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
 			thumbLayer.frame = CGRect(x: 0.0, y: 0.0, width: thumbImageView.image!.size.width, height: thumbImageView.image!.size.height)
 			thumbLayer.transform = CATransform3DMakeAffineTransform(CGAffineTransform(rotationAngle: CGFloat(M_PI_2)))
 
