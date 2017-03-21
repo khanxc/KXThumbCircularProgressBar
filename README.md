@@ -2,13 +2,13 @@
 A Circular progress bar with a progress thumb(icon) written in pure Swift.
 Customise your own thumb images to the Circular progress bar.
 
+![Alt Text](https://github.com/khanxc/KXThumbCircularProgressBar/blob/master/Example/KXThumbCircular-Example/KXThumbCircular-Example/gifs/feature3.gif)
+
+![Alt Text](https://github.com/khanxc/KXThumbCircularProgressBar/blob/master/Example/KXThumbCircular-Example/KXThumbCircular-Example/gifs/feature2.gif)
 
 ![Alt Text](https://github.com/khanxc/KXThumbCircularProgressBar/blob/master/Example/KXThumbCircular-Example/KXThumbCircular-Example/gifs/feature1.gif)
 
 
-![Alt Text](https://github.com/khanxc/KXThumbCircularProgressBar/blob/master/Example/KXThumbCircular-Example/KXThumbCircular-Example/gifs/feature2.gif)
-
-![Alt Text](https://github.com/khanxc/KXThumbCircularProgressBar/blob/master/Example/KXThumbCircular-Example/KXThumbCircular-Example/gifs/feature3.gif)
 
 # Features
 - [x] Customise thumb images
@@ -24,7 +24,7 @@ Customise your own thumb images to the Circular progress bar.
 ## Cocoapods
 You can use [CocoaPods](http://cocoapods.org/pods/KXThumbCircularProgressBar) to install *KXThumbCircularProgressBar* by adding it to your podfile
 
-```
+```swift
 pod 'KXThumbCircularProgressBar', '~> 0.0.4'
 ```
 And import the header and use it in the ViewController where you want to use this framework
