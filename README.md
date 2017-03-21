@@ -14,6 +14,7 @@ Customise your own thumb images to the Circular progress bar.
 - [x] Customise thumb images
 - [x] Increase/decrease the width of inner/outer ring
 - [x] Customize inner/outer ring colors
+- [x] Customize Start / End angle
 - [x] Add Image / Text (with unit of measurement) at the centre
 
 # Requirements
