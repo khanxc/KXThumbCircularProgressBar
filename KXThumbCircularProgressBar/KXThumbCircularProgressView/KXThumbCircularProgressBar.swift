@@ -50,6 +50,7 @@ let π: CGFloat = CGFloat(M_PI)
     @IBInspectable public var unitFontName: String = "HelveticaNeue"
     @IBInspectable public var unitFontSize: CGFloat = 15.0
     @IBInspectable public var fontColor: UIColor = UIColor.black
+    @IBInspectable public var valueMultiplier: Double = 100
     
     let ringLayer = CAShapeLayer()
     let thumbLayer = CALayer()
@@ -71,7 +72,6 @@ let π: CGFloat = CGFloat(M_PI)
         let center = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
         let radius: CGFloat = max(bounds.width - arcMargin, bounds.height - arcMargin)
         
-        let rotationDiff = 360 - abs((arcStartAngle - arcEndAngle))
         let startAngle: CGFloat = arcStartAngle.degreesToRadians
         let endAngle: CGFloat = arcEndAngle.degreesToRadians
         
@@ -188,18 +188,16 @@ let π: CGFloat = CGFloat(M_PI)
         let textStyle = NSMutableParagraphStyle()
         textStyle.alignment = .left
         
-        let valueFontSize = self.valueFontSize == -1 ? rectSize.height/5 : self.valueFontSize
-        
-        let valueFontAttributes = [NSFontAttributeName: UIFont(name: self.valueFontName, size: self.valueFontSize), NSForegroundColorAttributeName: self.fontColor, NSParagraphStyleAttributeName: textStyle] as [String : Any]
+        let valueFontAttributes = [NSFontAttributeName: UIFont(name: self.valueFontName, size: self.valueFontSize == -1 ? rectSize.height/5 : self.valueFontSize)!, NSForegroundColorAttributeName: self.fontColor, NSParagraphStyleAttributeName: textStyle] as [String : Any]
         
         let text = NSMutableAttributedString()
-        let textToPresent = "\(self.animateScale)"
+        let textToPresent = "\(self.animateScale * self.valueMultiplier) "
         
         let value = NSAttributedString(string: textToPresent, attributes: valueFontAttributes)
         text.append(value)
         
         if showUnit {
-            let unitAttributes = [NSFontAttributeName: UIFont(name: self.unitFontName, size: self.unitFontSize == -1 ? rectSize.height/7 : self.unitFontSize), NSForegroundColorAttributeName: self.fontColor, NSParagraphStyleAttributeName: textStyle] as [String : Any]
+            let unitAttributes = [NSFontAttributeName: UIFont(name: self.unitFontName, size: self.unitFontSize == -1 ? rectSize.height/7 : self.unitFontSize)!, NSForegroundColorAttributeName: self.fontColor, NSParagraphStyleAttributeName: textStyle] as [String : Any]
             let unit = NSAttributedString(string: self.UnitString, attributes: unitAttributes)
             text.append(unit)
         }
