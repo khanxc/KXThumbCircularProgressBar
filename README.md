@@ -27,11 +27,18 @@ You can use [CocoaPods](http://cocoapods.org/pods/KXThumbCircularProgressBar) to
 ```
 pod 'KXThumbCircularProgressBar', '~> 0.0.4'
 ```
-And import the header and use it in the ViewController where you use this framework
+And import the header and use it in the ViewController where you want to use this framework
 
 ```swift 
   import KXThumbCircularProgressBar
-  
+```
+
+Drag and drop a UIView in your storyboard and change the class of UIView like below
+
+![Alt Text](https://github.com/khanxc/KXThumbCircularProgressBar/blob/master/Example/KXThumbCircular-Example/KXThumbCircular-Example/gifs/SS.png)
+
+Create the IBOutlet and initiate the progress animation 
+```swift
   @IBOutlet weak var kx: KXThumbCircularProgressBar!
 
   override func viewDidLoad() {
