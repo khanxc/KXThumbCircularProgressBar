@@ -73,7 +73,7 @@ let π: CGFloat = CGFloat(M_PI)
         
         let rotationDiff = 360 - abs((arcStartAngle - arcEndAngle))
         let startAngle: CGFloat = arcStartAngle.degreesToRadians
-        let endAngle: CGFloat = (((CGFloat(self.animateScale) * abs(rotationDiff)) / 100) + arcStartAngle).degreesToRadians
+        let endAngle: CGFloat = arcEndAngle.degreesToRadians
         
         arcPath = UIBezierPath(
             arcCenter: center,
@@ -128,7 +128,7 @@ let π: CGFloat = CGFloat(M_PI)
         
         let rotationDiff = 360 - abs((arcStartAngle - arcEndAngle))
         let startAngle: CGFloat = arcStartAngle.degreesToRadians
-        let endAngle: CGFloat = (((loaderValue * abs(rotationDiff)) / 100) + arcStartAngle).degreesToRadians
+        let endAngle: CGFloat = ((((loaderValue * 100) * abs(rotationDiff)) / 100) + arcStartAngle).degreesToRadians
         
         let thumbPath = UIBezierPath(
             arcCenter: center,
