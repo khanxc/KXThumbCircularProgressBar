@@ -13,6 +13,7 @@
 		6C45BDFE1E6D6FCB007D4ACF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C45BDFC1E6D6FCB007D4ACF /* Main.storyboard */; };
 		6C45BE001E6D6FCB007D4ACF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C45BDFF1E6D6FCB007D4ACF /* Assets.xcassets */; };
 		6C45BE031E6D6FCB007D4ACF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C45BE011E6D6FCB007D4ACF /* LaunchScreen.storyboard */; };
+		6C5B79A91E810D09004B591E /* Car Top View-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C5B79A81E810D09004B591E /* Car Top View-50.png */; };
 		6C8169B31E6D7BB700318EE6 /* finger.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C8169B21E6D7BB700318EE6 /* finger.png */; };
 		6C8169B51E6D7BE400318EE6 /* twit.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C8169B41E6D7BE400318EE6 /* twit.png */; };
 		6CCBFB621E6D70FF00EED4D1 /* Circled Right-96.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CCBFB611E6D70FF00EED4D1 /* Circled Right-96.png */; };
@@ -32,6 +33,7 @@
 		6C45BDFF1E6D6FCB007D4ACF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6C45BE021E6D6FCB007D4ACF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6C45BE041E6D6FCB007D4ACF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C5B79A81E810D09004B591E /* Car Top View-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Car Top View-50.png"; sourceTree = "<group>"; };
 		6C8169B21E6D7BB700318EE6 /* finger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = finger.png; sourceTree = "<group>"; };
 		6C8169B41E6D7BE400318EE6 /* twit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twit.png; sourceTree = "<group>"; };
 		6CCBFB611E6D70FF00EED4D1 /* Circled Right-96.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Circled Right-96.png"; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				6C8169B41E6D7BE400318EE6 /* twit.png */,
 				6C8169B21E6D7BB700318EE6 /* finger.png */,
 				6CCBFB611E6D70FF00EED4D1 /* Circled Right-96.png */,
+				6C5B79A81E810D09004B591E /* Car Top View-50.png */,
 				7DF3191F1E7FB77500E2C6A8 /* car.png */,
 				6C45BDF81E6D6FCB007D4ACF /* AppDelegate.swift */,
 				6C45BDFA1E6D6FCB007D4ACF /* ViewController.swift */,
@@ -147,7 +150,7 @@
 				TargetAttributes = {
 					6C45BDF41E6D6FCB007D4ACF = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = LSVVD8ZPH6;
+						DevelopmentTeam = 8TA54VAA35;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -179,6 +182,7 @@
 				6CCE7B681E6E81DB00B3114D /* rkt.gif in Resources */,
 				6CCD87C11E6E6987004756D1 /* rkt.png in Resources */,
 				6C45BE031E6D6FCB007D4ACF /* LaunchScreen.storyboard in Resources */,
+				6C5B79A91E810D09004B591E /* Car Top View-50.png in Resources */,
 				6C45BE001E6D6FCB007D4ACF /* Assets.xcassets in Resources */,
 				6C8169B31E6D7BB700318EE6 /* finger.png in Resources */,
 				6C45BDFE1E6D6FCB007D4ACF /* Main.storyboard in Resources */,
@@ -369,7 +373,7 @@
 			baseConfigurationReference = BC4A4624312B8473FA899D8C /* Pods-KXThumbCircular-Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = LSVVD8ZPH6;
+				DEVELOPMENT_TEAM = 8TA54VAA35;
 				INFOPLIST_FILE = "KXThumbCircular-Example/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -384,7 +388,7 @@
 			baseConfigurationReference = 20FC0B56769B66D6C59A872E /* Pods-KXThumbCircular-Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = LSVVD8ZPH6;
+				DEVELOPMENT_TEAM = 8TA54VAA35;
 				INFOPLIST_FILE = "KXThumbCircular-Example/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

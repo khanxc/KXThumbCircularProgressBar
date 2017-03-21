@@ -14,30 +14,30 @@ import UIKit
 let π: CGFloat = CGFloat(M_PI)
 
 @IBDesignable public class KXThumbCircularProgressBar: UIView {
-
+    
     @IBInspectable public var ringBackgroundColour: UIColor = UIColor(netHex: 0xaba8a8)
     @IBInspectable public var ringForegroundColour: UIColor = UIColor.green
-
+    
     
     //	@IBInspectable public var backgroundImage: UIImage?
-
+    
     //commented for next release feature
- //   @IBInspectable var lowLevelColor: UIColor        = UIColor.red
- //   @IBInspectable var midLevelColor: UIColor        = UIColor.orange
- //   @IBInspectable var highLevelColor: UIColor       = UIColor.green
+    //   @IBInspectable var lowLevelColor: UIColor        = UIColor.red
+    //   @IBInspectable var midLevelColor: UIColor        = UIColor.orange
+    //   @IBInspectable var highLevelColor: UIColor       = UIColor.green
     
     // must be between [0,100]
     @IBInspectable public var animateScale: Double = 0.0
-
+    
     @IBInspectable public var foreGroundArcWidth: CGFloat   = 20
     @IBInspectable public var backGroundArcWidth: CGFloat   = 8
     @IBInspectable public var isthumbImageAvailable: Bool = false
     @IBInspectable public var thumbImage: UIImage?
     @IBInspectable public var arcStartAngle: CGFloat = 120
     @IBInspectable public var arcEndAngle: CGFloat = 60
-
+    
     @IBInspectable public var arcMargin: CGFloat = 75
-
+    
     // Display Image or Text
     @IBInspectable public var showImage: Bool = false
     @IBInspectable public var image: UIImage?
@@ -56,7 +56,7 @@ let π: CGFloat = CGFloat(M_PI)
     let imgView = UIImageView()
     var thumbImageView = UIImageView()
     var arcPath = UIBezierPath()
-
+    
     public override func draw(_ rect: CGRect) {
         
         backgroundArc()
@@ -73,7 +73,7 @@ let π: CGFloat = CGFloat(M_PI)
         
         let rotationDiff = 360 - abs((arcStartAngle - arcEndAngle))
         let startAngle: CGFloat = arcStartAngle.degreesToRadians
-        let endAngle: CGFloat = (((CGFloat(self.animateScale) * abs(rotationDiff)) / 100) + arcStartAngle).degreesToRadians
+        let endAngle: CGFloat = arcEndAngle.degreesToRadians
         
         arcPath = UIBezierPath(
             arcCenter: center,
@@ -93,95 +93,95 @@ let π: CGFloat = CGFloat(M_PI)
         animateArc(loaderValue: CGFloat(self.animateScale)) // changed here
     }
     
-
-
     
-	private func backgroundArc() {
-
-		// backGroundArcWidth = 5
-		let center = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
-		let radius: CGFloat = max(bounds.width - arcMargin, bounds.height - arcMargin)
-
-		let startAngle: CGFloat = arcStartAngle.degreesToRadians
-		let endAngle: CGFloat = arcEndAngle.degreesToRadians
-
-		let path = UIBezierPath(
-			arcCenter: center,
-			radius: radius / 2 - backGroundArcWidth / 2,
-			startAngle: startAngle,
-			endAngle: endAngle,
-			clockwise: true)
-		path.lineWidth = backGroundArcWidth
-		ringBackgroundColour.setStroke()
-		path.stroke()
-	}
+    
+    
+    private func backgroundArc() {
+        
+        // backGroundArcWidth = 5
+        let center = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
+        let radius: CGFloat = max(bounds.width - arcMargin, bounds.height - arcMargin)
+        
+        let startAngle: CGFloat = arcStartAngle.degreesToRadians
+        let endAngle: CGFloat = arcEndAngle.degreesToRadians
+        
+        let path = UIBezierPath(
+            arcCenter: center,
+            radius: radius / 2 - backGroundArcWidth / 2,
+            startAngle: startAngle,
+            endAngle: endAngle,
+            clockwise: true)
+        path.lineWidth = backGroundArcWidth
+        ringBackgroundColour.setStroke()
+        path.stroke()
+    }
     
     /**
      Code for animating the color on arc as well as the thumb slider
      
      - parameter loaderValue: the value passed to the animation code. Must be between 0 to 1
      */
-	private func animateArc(loaderValue: CGFloat) {
-
-		let center = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
-		let radius: CGFloat = max(bounds.width - arcMargin, bounds.height - arcMargin)
-
+    private func animateArc(loaderValue: CGFloat) {
+        
+        let center = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
+        let radius: CGFloat = max(bounds.width - arcMargin, bounds.height - arcMargin)
+        
         let rotationDiff = 360 - abs((arcStartAngle - arcEndAngle))
-		let startAngle: CGFloat = arcStartAngle.degreesToRadians
-		let endAngle: CGFloat = (((loaderValue * abs(rotationDiff)) / 100) + arcStartAngle).degreesToRadians
-
-		let thumbPath = UIBezierPath(
-			arcCenter: center,
-			radius: radius / 2 - backGroundArcWidth / 2, // changed here
-			startAngle: startAngle,
-			endAngle: endAngle,
-			clockwise: true)
-
-		if isthumbImageAvailable && loaderValue != 0 {
-
-			thumbImageView.image = thumbImage!
-			thumbLayer.contents = thumbImageView.image?.cgImage
-			thumbLayer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-			thumbLayer.frame = CGRect(x: 0.0, y: 0.0, width: thumbImageView.image!.size.width, height: thumbImageView.image!.size.height)
-			thumbLayer.transform = CATransform3DMakeAffineTransform(CGAffineTransform(rotationAngle: CGFloat(M_PI_2)))
-
-			ringLayer.addSublayer(thumbLayer)
-
-			let pathAnimation: CAKeyframeAnimation = CAKeyframeAnimation(keyPath: "position")
-			pathAnimation.duration = 2
-			pathAnimation.path = thumbPath.cgPath;
-			pathAnimation.repeatCount = 0
-			pathAnimation.calculationMode = kCAAnimationPaced
-			pathAnimation.rotationMode = kCAAnimationRotateAuto
-			pathAnimation.fillMode = kCAFillModeForwards
-			pathAnimation.isRemovedOnCompletion = false
-			thumbLayer.add(pathAnimation, forKey: "movingMeterTip") //need to refactor
-		}
-
-		let animation = CABasicAnimation(keyPath: "strokeEnd")
-		animation.duration = 2
-		animation.fromValue = 0
-		animation.toValue = loaderValue // changed here
-		animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
-		ringLayer.strokeEnd = loaderValue
-		ringLayer.add(animation, forKey: "animateArc")
-	}
-
-	func drawCenterImage() {
+        let startAngle: CGFloat = arcStartAngle.degreesToRadians
+        let endAngle: CGFloat = ((((loaderValue * 100) * abs(rotationDiff)) / 100) + arcStartAngle).degreesToRadians
+        
+        let thumbPath = UIBezierPath(
+            arcCenter: center,
+            radius: radius / 2 - backGroundArcWidth / 2, // changed here
+            startAngle: startAngle,
+            endAngle: endAngle,
+            clockwise: true)
+        
+        if isthumbImageAvailable && loaderValue != 0 {
+            
+            thumbImageView.image = thumbImage!
+            thumbLayer.contents = thumbImageView.image?.cgImage
+            thumbLayer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+            thumbLayer.frame = CGRect(x: 0.0, y: 0.0, width: thumbImageView.image!.size.width, height: thumbImageView.image!.size.height)
+            thumbLayer.transform = CATransform3DMakeAffineTransform(CGAffineTransform(rotationAngle: CGFloat(M_PI_2)))
+            
+            ringLayer.addSublayer(thumbLayer)
+            
+            let pathAnimation: CAKeyframeAnimation = CAKeyframeAnimation(keyPath: "position")
+            pathAnimation.duration = 2
+            pathAnimation.path = thumbPath.cgPath;
+            pathAnimation.repeatCount = 0
+            pathAnimation.calculationMode = kCAAnimationPaced
+            pathAnimation.rotationMode = kCAAnimationRotateAuto
+            pathAnimation.fillMode = kCAFillModeForwards
+            pathAnimation.isRemovedOnCompletion = false
+            thumbLayer.add(pathAnimation, forKey: "movingMeterTip") //need to refactor
+        }
+        
+        let animation = CABasicAnimation(keyPath: "strokeEnd")
+        animation.duration = 2
+        animation.fromValue = 0
+        animation.toValue = loaderValue // changed here
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        ringLayer.strokeEnd = loaderValue
+        ringLayer.add(animation, forKey: "animateArc")
+    }
+    
+    func drawCenterImage() {
         
         let center = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
         let radius: CGFloat = max(bounds.width - arcMargin, bounds.height - arcMargin)
         
         let imgViewWidth = image!.size.width > radius ? radius : image!.size.width
         let imgViewHeight = image!.size.height > radius ? radius : image!.size.height
-
+        
         let resizedImg = resizeImage(image: image!, targetSize: CGSize(width: imgViewWidth, height: imgViewHeight))
         imgView.frame = CGRect(x: 0, y: 0, width: resizedImg.size.width, height: resizedImg.size.height)
         imgView.center = center
         imgView.image = resizedImg
         imgView.contentMode = .scaleAspectFit
         self.addSubview(imgView)
-	}
+    }
     
     func drawText(rectSize: CGSize) {
         
@@ -189,15 +189,15 @@ let π: CGFloat = CGFloat(M_PI)
         textStyle.alignment = .left
         
         let valueFontSize = self.valueFontSize == -1 ? rectSize.height/5 : self.valueFontSize
-
+        
         let valueFontAttributes = [NSFontAttributeName: UIFont(name: self.valueFontName, size: self.valueFontSize), NSForegroundColorAttributeName: self.fontColor, NSParagraphStyleAttributeName: textStyle] as [String : Any]
-
+        
         let text = NSMutableAttributedString()
         let textToPresent = "\(self.animateScale)"
         
         let value = NSAttributedString(string: textToPresent, attributes: valueFontAttributes)
         text.append(value)
-
+        
         if showUnit {
             let unitAttributes = [NSFontAttributeName: UIFont(name: self.unitFontName, size: self.unitFontSize == -1 ? rectSize.height/7 : self.unitFontSize), NSForegroundColorAttributeName: self.fontColor, NSParagraphStyleAttributeName: textStyle] as [String : Any]
             let unit = NSAttributedString(string: self.UnitString, attributes: unitAttributes)

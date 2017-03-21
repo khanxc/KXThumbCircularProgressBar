@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -40,7 +40,7 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="foreGroundArcWidth">
                                         <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="thumbImage" value="rkt.png"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="thumbImage" value="Car Top View-50.png"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="arcMargin">
                                         <real key="value" value="75"/>
                                     </userDefinedRuntimeAttribute>
@@ -51,8 +51,8 @@
                                         <real key="value" value="60"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="showImage" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showText" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showUnit" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showText" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showUnit" value="NO"/>
                                     <userDefinedRuntimeAttribute type="image" keyPath="image" value="car.png"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -74,7 +74,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Car Top View-50.png" width="50" height="50"/>
         <image name="car.png" width="1600" height="500"/>
-        <image name="rkt.png" width="48" height="48"/>
     </resources>
 </document>

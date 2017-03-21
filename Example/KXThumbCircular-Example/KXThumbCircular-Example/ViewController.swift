@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        kx.animateScale = 75 //must be between 0 and 100
+        kx.animateScale = 0.75 //must be between 0 and 100
     }
 
     override func didReceiveMemoryWarning() {

@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '3D93B0CD2CF55B9DCF5BD16FF8F6CC9F'
+               BlueprintIdentifier = 'A4C739B29DCE1CD2EDE33F7D5FA79F4B'
                BlueprintName = 'KXThumbCircularProgressBar'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'KXThumbCircularProgressBar.framework'>
