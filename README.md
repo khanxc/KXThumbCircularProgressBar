@@ -1,5 +1,5 @@
 
-![](https://travis-ci.org/khanxc/KXThumbCircularProgressBar.svg?branch=master)
+
 
 # KXThumbCircularProgressBar
 A Circular progress bar with a progress thumb(icon) written in pure Swift.
