@@ -9,6 +9,12 @@
 import Foundation
 import UIKit
 
+@objc public protocol KXArcNotifyDelegate {
+    
+    @objc optional func arcAnimationDidStart()
+    @objc optional func arcAnimationDidStop()
+}
+
 /// This file creates a resuable component Arc view.
 
 let π: CGFloat = CGFloat(M_PI)
@@ -57,6 +63,9 @@ let π: CGFloat = CGFloat(M_PI)
     let imgView = UIImageView()
     var thumbImageView = UIImageView()
     var arcPath = UIBezierPath()
+    
+    // Arc animation notify Delegate
+    public var delegate: KXArcNotifyDelegate?
     
     public override func draw(_ rect: CGRect) {
         
@@ -159,6 +168,7 @@ let π: CGFloat = CGFloat(M_PI)
         }
         
         let animation = CABasicAnimation(keyPath: "strokeEnd")
+        animation.delegate = self
         animation.duration = 2
         animation.fromValue = 0
         animation.toValue = loaderValue // changed here
@@ -231,5 +241,16 @@ let π: CGFloat = CGFloat(M_PI)
         UIGraphicsEndImageContext()
         
         return newImage!
+    }
+}
+
+extension KXThumbCircularProgressBar: CAAnimationDelegate {
+    
+    public func animationDidStart(_ anim: CAAnimation) {
+        self.delegate?.arcAnimationDidStart?()
+    }
+    
+    public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        self.delegate?.arcAnimationDidStop?()
     }
 }
