@@ -201,20 +201,41 @@ let π: CGFloat = CGFloat(M_PI)
         let valueFontAttributes = [NSFontAttributeName: UIFont(name: self.valueFontName, size: self.valueFontSize == -1 ? rectSize.height/5 : self.valueFontSize)!, NSForegroundColorAttributeName: self.fontColor, NSParagraphStyleAttributeName: textStyle] as [String : Any]
         
         let text = NSMutableAttributedString()
-        let textToPresent = "\(self.animateScale * self.valueMultiplier) "
-        
-        let value = NSAttributedString(string: textToPresent, attributes: valueFontAttributes)
-        text.append(value)
+        let value = self.animateScale * self.valueMultiplier
         
         if showUnit {
             let unitAttributes = [NSFontAttributeName: UIFont(name: self.unitFontName, size: self.unitFontSize == -1 ? rectSize.height/7 : self.unitFontSize)!, NSForegroundColorAttributeName: self.fontColor, NSParagraphStyleAttributeName: textStyle] as [String : Any]
             let unit = NSAttributedString(string: self.UnitString, attributes: unitAttributes)
             text.append(unit)
         }
+
+        let valueSize = ("\(Int(value))" as NSString).size(attributes: valueFontAttributes)
+        let unitSize = text.size()
+        let centerWidth = valueSize.width
+        let centerHeight = valueSize.height
         
-        let percentSize = text.size()
-        let textCenter = CGPoint(x: (rectSize.width/2) - (percentSize.width / 2), y: (rectSize.height/2) - (percentSize.height / 2))
-        text.draw(at: textCenter)
+        let textLabel = UILabel()
+        textLabel.frame.size = CGSize(width: valueSize.width, height: valueSize.height)
+        textLabel.center = CGPoint(x: (bounds.width/2) - (centerWidth / 2), y: (bounds.height/2) - (centerHeight / 2))
+        textLabel.font = UIFont(name: self.valueFontName, size: self.valueFontSize == -1 ? rectSize.height/5 : self.valueFontSize)
+        textLabel.text = "\(Int(value)) "
+        textLabel.textColor = self.fontColor
+        self.addSubview(textLabel)
+        
+        let duration: Double = 2.0 //seconds
+        DispatchQueue.global().async {
+            for i in 0 ..< (Int(value) + 1) {
+                let sleepTime = UInt32(duration/Double(value) * 280000.0)
+                usleep(sleepTime)
+                DispatchQueue.main.async {
+                    textLabel.text = "\(i)"
+                }
+            }
+        }
+        
+        // unit string draw rect
+        let unitRect = CGRect(x: textLabel.frame.origin.x + textLabel.frame.size.width + 5, y: textLabel.frame.origin.y + (textLabel.frame.size.height - unitSize.height - 3), width: unitSize.width, height: unitSize.height)
+        text.draw(in: unitRect)
     }
     
     func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
