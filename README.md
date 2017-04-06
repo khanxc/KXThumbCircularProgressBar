@@ -9,7 +9,12 @@ Customise your own thumb images to the Circular progress bar.
 
 ![Alt Text](https://github.com/khanxc/KXThumbCircularProgressBar/blob/master/Example/KXThumbCircular-Example/KXThumbCircular-Example/gifs/feature2.gif)
 
-![Alt Text](https://github.com/khanxc/KXThumbCircularProgressBar/blob/master/Example/KXThumbCircular-Example/KXThumbCircular-Example/gifs/feature1.gif)
+![Alt Text](https://github.com/khanxc/KXThumbCircularProgressBar/blob/master/Example/KXThumbCircular-Example/KXThumbCircular-Example/gifs/feature1.gif) 
+
+![Alt Text](https://github.com/khanxc/KXThumbCircularProgressBar/blob/master/Example/KXThumbCircular-Example/KXThumbCircular-Example/gifs/animatingText.gif)
+
+
+
 
 
 
@@ -19,6 +24,7 @@ Customise your own thumb images to the Circular progress bar.
 - [x] Customize inner/outer ring colors
 - [x] Customize Start / End angle
 - [x] Add Image / Text (with unit of measurement) at the centre
+- [x] Animating text
 
 # Requirements
 - iOS 8.0+
@@ -50,6 +56,9 @@ Create the IBOutlet and initiate the progress animation
         kx.animateScale = 0.75 //value between 0 to 1
     } 
 ```
+
+# To Do & Progress
+- [x] Enabling this framework programmatically
 
 # License
 Distributed under MIT license. Please see [LICENSE](https://github.com/khanxc/KXThumbCircularProgressBar/blob/master/LICENSE.md) file.
