@@ -39,8 +39,8 @@
 		6CCBFB611E6D70FF00EED4D1 /* Circled Right-96.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Circled Right-96.png"; sourceTree = "<group>"; };
 		6CCD87C01E6E6987004756D1 /* rkt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rkt.png; sourceTree = "<group>"; };
 		6CCD87C21E6E6E8C004756D1 /* fal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fal.png; sourceTree = "<group>"; };
-		6CCE7B661E6E81DB00B3114D /* rkt.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = rkt.gif; sourceTree = "<group>"; };
-		6CCE7B671E6E81DB00B3114D /* fal.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = fal.gif; sourceTree = "<group>"; };
+		6CCE7B661E6E81DB00B3114D /* rkt.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = rkt.gif; path = gifs/rkt.gif; sourceTree = "<group>"; };
+		6CCE7B671E6E81DB00B3114D /* fal.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = fal.gif; path = gifs/fal.gif; sourceTree = "<group>"; };
 		7DF3191F1E7FB77500E2C6A8 /* car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car.png; sourceTree = "<group>"; };
 		9D77441866F8BA2BA1651EE7 /* Pods_KXThumbCircular_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KXThumbCircular_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC4A4624312B8473FA899D8C /* Pods-KXThumbCircular-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KXThumbCircular-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KXThumbCircular-Example/Pods-KXThumbCircular-Example.debug.xcconfig"; sourceTree = "<group>"; };

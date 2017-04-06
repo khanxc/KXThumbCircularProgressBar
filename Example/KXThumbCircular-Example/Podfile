@@ -6,6 +6,6 @@ target 'KXThumbCircular-Example' do
   use_frameworks!
 
   # Pods for KXThumbCircular-Example
-pod 'KXThumbCircularProgressBar', '~> 0.0.4'
+pod 'KXThumbCircularProgressBar', '~> 0.0.5'
 
 end
