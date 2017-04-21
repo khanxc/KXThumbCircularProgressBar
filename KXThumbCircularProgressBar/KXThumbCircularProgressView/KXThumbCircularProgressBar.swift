@@ -1,10 +1,8 @@
-//
-//  ArcGraphicsController.swift
-//  GeoLocus
-//
-//  Created by khan on 20/01/16.
-//  Copyright © 2016 Cognizant. All rights reserved.
-//
+
+
+
+//  Created by khan
+
 
 import Foundation
 import UIKit
