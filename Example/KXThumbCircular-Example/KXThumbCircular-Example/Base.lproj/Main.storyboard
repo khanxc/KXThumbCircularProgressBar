@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,11 +22,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gqp-Go-JS9" customClass="KXThumbCircularProgressBar" customModule="KXThumbCircularProgressBar">
-                                <rect key="frame" x="16" y="120" width="343" height="324"/>
+                                <rect key="frame" x="37" y="20" width="300" height="300"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="324" id="F5V-c5-v9f"/>
-                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isthumbImageAvailable" value="YES"/>
                                     <userDefinedRuntimeAttribute type="color" keyPath="ringBackgroundColour">
@@ -38,7 +36,7 @@
                                         <real key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="foreGroundArcWidth">
-                                        <real key="value" value="10"/>
+                                        <real key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="image" keyPath="thumbImage" value="Car Top View-50.png"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="arcMargin">
@@ -54,19 +52,50 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="showText" value="YES"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="showUnit" value="YES"/>
                                     <userDefinedRuntimeAttribute type="image" keyPath="image" value="car.png"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="UnitString" value="%"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="UnitString" value="KM"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="valueFontSize">
+                                        <real key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="unitFontSize">
+                                        <real key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B34-oz-DKt" customClass="KXThumbCircularProgressBar" customModule="KXThumbCircularProgressBar">
+                                <rect key="frame" x="37" y="340" width="300" height="300"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="ringBackgroundColour">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="ringForegroundColour">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showImage" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="car.png"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showText" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showUnit" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isthumbImageAvailable" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="thumbImage" value="Car Top View-50.png"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="gqp-Go-JS9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="Mjt-5o-VTT"/>
-                            <constraint firstItem="gqp-Go-JS9" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="a97-7E-DaK"/>
-                            <constraint firstAttribute="trailing" secondItem="gqp-Go-JS9" secondAttribute="trailing" constant="16" id="rGr-pU-e8r"/>
+                            <constraint firstItem="gqp-Go-JS9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="21" id="2VK-nq-fuZ"/>
+                            <constraint firstItem="gqp-Go-JS9" firstAttribute="height" secondItem="B34-oz-DKt" secondAttribute="height" id="7sd-TX-gFM"/>
+                            <constraint firstItem="gqp-Go-JS9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8sd-VY-bsj"/>
+                            <constraint firstItem="gqp-Go-JS9" firstAttribute="width" secondItem="B34-oz-DKt" secondAttribute="width" id="O6g-P7-qpO"/>
+                            <constraint firstItem="gqp-Go-JS9" firstAttribute="trailing" secondItem="B34-oz-DKt" secondAttribute="trailing" id="Pau-F3-FN5"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="B34-oz-DKt" secondAttribute="bottom" constant="27" id="Qck-dW-KrC"/>
+                            <constraint firstItem="gqp-Go-JS9" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Zlr-bY-Ok2"/>
+                            <constraint firstItem="B34-oz-DKt" firstAttribute="top" secondItem="gqp-Go-JS9" secondAttribute="bottom" constant="20" id="e6G-B8-ey3"/>
+                            <constraint firstItem="gqp-Go-JS9" firstAttribute="leading" secondItem="B34-oz-DKt" secondAttribute="leading" id="ztk-KF-f4d"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="kx" destination="gqp-Go-JS9" id="JXg-0s-M5Z"/>
+                        <outlet property="kx1" destination="B34-oz-DKt" id="1hr-lc-7nN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

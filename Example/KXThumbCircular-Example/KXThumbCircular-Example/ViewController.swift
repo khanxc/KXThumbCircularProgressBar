@@ -11,11 +11,15 @@ import KXThumbCircularProgressBar
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var kx: KXThumbCircularProgressBar!
+    @IBOutlet var kx: KXThumbCircularProgressBar!
+    @IBOutlet var kx1: KXThumbCircularProgressBar!
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         kx.animateScale = 0.75 //must be between 0 and 100
+        kx1.animateScale = 0.50
     }
 
     override func didReceiveMemoryWarning() {

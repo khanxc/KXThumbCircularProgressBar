@@ -1,12 +1,12 @@
 PODS:
-  - KXThumbCircularProgressBar (0.0.4)
+  - KXThumbCircularProgressBar (0.0.6)
 
 DEPENDENCIES:
-  - KXThumbCircularProgressBar (~> 0.0.4)
+  - KXThumbCircularProgressBar (~> 0.0.6)
 
 SPEC CHECKSUMS:
-  KXThumbCircularProgressBar: 38285451e662580512e9dce3480f054db5c22725
+  KXThumbCircularProgressBar: 8a6c3a50d5cbf25b73c22ec2d40f5c826f1d4730
 
-PODFILE CHECKSUM: 99895b5993f7535995e7bf254bf5f99df05cbccb
+PODFILE CHECKSUM: 3a1bfd45be0ee78ab18889a252f96a615bee5573
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.2.1

@@ -1,13 +1,17 @@
-//
-//  ArcGraphicsController.swift
-//  GeoLocus
-//
-//  Created by khan on 20/01/16.
-//  Copyright © 2016 Cognizant. All rights reserved.
-//
+
+
+
+//  Created by khan
+
 
 import Foundation
 import UIKit
+
+@objc public protocol KXArcNotifyDelegate {
+    
+    @objc optional func arcAnimationDidStart()
+    @objc optional func arcAnimationDidStop()
+}
 
 /// This file creates a resuable component Arc view.
 
@@ -50,12 +54,16 @@ let π: CGFloat = CGFloat(M_PI)
     @IBInspectable public var unitFontName: String = "HelveticaNeue"
     @IBInspectable public var unitFontSize: CGFloat = 15.0
     @IBInspectable public var fontColor: UIColor = UIColor.black
+    @IBInspectable public var valueMultiplier: Double = 100
     
     let ringLayer = CAShapeLayer()
     let thumbLayer = CALayer()
     let imgView = UIImageView()
     var thumbImageView = UIImageView()
     var arcPath = UIBezierPath()
+    
+    // Arc animation notify Delegate
+    public var delegate: KXArcNotifyDelegate?
     
     public override func draw(_ rect: CGRect) {
         
@@ -71,7 +79,6 @@ let π: CGFloat = CGFloat(M_PI)
         let center = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
         let radius: CGFloat = max(bounds.width - arcMargin, bounds.height - arcMargin)
         
-        let rotationDiff = 360 - abs((arcStartAngle - arcEndAngle))
         let startAngle: CGFloat = arcStartAngle.degreesToRadians
         let endAngle: CGFloat = arcEndAngle.degreesToRadians
         
@@ -159,6 +166,7 @@ let π: CGFloat = CGFloat(M_PI)
         }
         
         let animation = CABasicAnimation(keyPath: "strokeEnd")
+        animation.delegate = self
         animation.duration = 2
         animation.fromValue = 0
         animation.toValue = loaderValue // changed here
@@ -188,25 +196,44 @@ let π: CGFloat = CGFloat(M_PI)
         let textStyle = NSMutableParagraphStyle()
         textStyle.alignment = .left
         
-        let valueFontSize = self.valueFontSize == -1 ? rectSize.height/5 : self.valueFontSize
-        
-        let valueFontAttributes = [NSFontAttributeName: UIFont(name: self.valueFontName, size: self.valueFontSize), NSForegroundColorAttributeName: self.fontColor, NSParagraphStyleAttributeName: textStyle] as [String : Any]
+        let valueFontAttributes = [NSFontAttributeName: UIFont(name: self.valueFontName, size: self.valueFontSize == -1 ? rectSize.height/5 : self.valueFontSize)!, NSForegroundColorAttributeName: self.fontColor, NSParagraphStyleAttributeName: textStyle] as [String : Any]
         
         let text = NSMutableAttributedString()
-        let textToPresent = "\(self.animateScale)"
-        
-        let value = NSAttributedString(string: textToPresent, attributes: valueFontAttributes)
-        text.append(value)
+        let value = self.animateScale * self.valueMultiplier
         
         if showUnit {
-            let unitAttributes = [NSFontAttributeName: UIFont(name: self.unitFontName, size: self.unitFontSize == -1 ? rectSize.height/7 : self.unitFontSize), NSForegroundColorAttributeName: self.fontColor, NSParagraphStyleAttributeName: textStyle] as [String : Any]
+            let unitAttributes = [NSFontAttributeName: UIFont(name: self.unitFontName, size: self.unitFontSize == -1 ? rectSize.height/7 : self.unitFontSize)!, NSForegroundColorAttributeName: self.fontColor, NSParagraphStyleAttributeName: textStyle] as [String : Any]
             let unit = NSAttributedString(string: self.UnitString, attributes: unitAttributes)
             text.append(unit)
         }
+
+        let valueSize = ("\(Int(value))" as NSString).size(attributes: valueFontAttributes)
+        let unitSize = text.size()
+        let centerWidth = valueSize.width
+        let centerHeight = valueSize.height
         
-        let percentSize = text.size()
-        let textCenter = CGPoint(x: (rectSize.width/2) - (percentSize.width / 2), y: (rectSize.height/2) - (percentSize.height / 2))
-        text.draw(at: textCenter)
+        let textLabel = UILabel()
+        textLabel.frame.size = CGSize(width: valueSize.width, height: valueSize.height)
+        textLabel.center = CGPoint(x: (bounds.width/2) - (centerWidth / 2), y: (bounds.height/2) - (centerHeight / 2))
+        textLabel.font = UIFont(name: self.valueFontName, size: self.valueFontSize == -1 ? rectSize.height/5 : self.valueFontSize)
+        textLabel.text = "\(Int(value)) "
+        textLabel.textColor = self.fontColor
+        self.addSubview(textLabel)
+        
+        let duration: Double = 2.0 //seconds
+        DispatchQueue.global().async {
+            for i in 0 ..< (Int(value) + 1) {
+                let sleepTime = UInt32(duration/Double(value) * 280000.0)
+                usleep(sleepTime)
+                DispatchQueue.main.async {
+                    textLabel.text = "\(i)"
+                }
+            }
+        }
+        
+        // unit string draw rect
+        let unitRect = CGRect(x: textLabel.frame.origin.x + textLabel.frame.size.width + 5, y: textLabel.frame.origin.y + (textLabel.frame.size.height - unitSize.height - 3), width: unitSize.width, height: unitSize.height)
+        text.draw(in: unitRect)
     }
     
     func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
@@ -233,5 +260,16 @@ let π: CGFloat = CGFloat(M_PI)
         UIGraphicsEndImageContext()
         
         return newImage!
+    }
+}
+
+extension KXThumbCircularProgressBar: CAAnimationDelegate {
+    
+    public func animationDidStart(_ anim: CAAnimation) {
+        self.delegate?.arcAnimationDidStart?()
+    }
+    
+    public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        self.delegate?.arcAnimationDidStop?()
     }
 }
