@@ -13,7 +13,7 @@ Customise your own thumb images to the Circular progress bar.
 
 ![Alt Text](https://github.com/khanxc/KXThumbCircularProgressBar/blob/master/Example/KXThumbCircular-Example/KXThumbCircular-Example/gifs/animatingText.gif)
 
-
+![Alt Text](https://github.com/khanxc/KXThumbCircularProgressBar/blob/master/Example/KXThumbCircular-Example/KXThumbCircular-Example/gifs/feature4.gif)
 
 
 
@@ -35,7 +35,7 @@ Customise your own thumb images to the Circular progress bar.
 You can use [CocoaPods](http://cocoapods.org/pods/KXThumbCircularProgressBar) to install *KXThumbCircularProgressBar* by adding it to your podfile
 
 ```
-    pod 'KXThumbCircularProgressBar', '~> 0.0.4'
+    pod 'KXThumbCircularProgressBar', '~> 0.0.6'
 ```
 And import the header and use it in the ViewController where you want to use this framework
 
