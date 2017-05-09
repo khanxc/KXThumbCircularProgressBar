@@ -7,21 +7,67 @@
 import Foundation
 import UIKit
 
+
+//optional notification protocols
+
 @objc public protocol KXArcNotifyDelegate {
     
     @objc optional func arcAnimationDidStart()
     @objc optional func arcAnimationDidStop()
 }
 
-/// This file creates a resuable component Arc view.
+
+// Nothing to see here , it is just a Pi
 
 let π: CGFloat = CGFloat(M_PI)
 
+
+
+// convenicence inits
+
+
+extension KXThumbCircularProgressBar {
+
+    public convenience init(ringWidth: CGFloat, ringHeight: CGFloat) {
+        
+        self.init(ringWidth: ringWidth, ringHeight: ringHeight,backgroundColor: UIColor.clear, ringBackgroundColour: UIColor(netHex: 0xaba8a8),  ringForegroundColour: UIColor.green, foreGroundArcWidth: 20, backGroundArcWidth: 8, arcStartAngle: 120, arcEndAngle: 60, arcMargin: 75)
+        
+        }
+    
+    
+    public convenience init(ringWidth: CGFloat, ringHeight: CGFloat, backgroundColor: UIColor, ringBackgroundColour: UIColor, ringForegroundColour: UIColor) {
+        
+         self.init(ringWidth: ringWidth, ringHeight: ringHeight, backgroundColor: backgroundColor, ringBackgroundColour: ringBackgroundColour,  ringForegroundColour: ringForegroundColour, foreGroundArcWidth: 20, backGroundArcWidth: 8, arcStartAngle: 120, arcEndAngle: 60, arcMargin: 75)
+
+        }
+    
+    
+    public convenience init(ringWidth: CGFloat, ringHeight: CGFloat,arcStartAngle: CGFloat,
+                            arcEndAngle: CGFloat, arcMargin: CGFloat) {
+        
+        self.init(ringWidth: ringWidth, ringHeight: ringHeight,backgroundColor: UIColor.clear, ringBackgroundColour: UIColor(netHex: 0xaba8a8),  ringForegroundColour: UIColor.green, foreGroundArcWidth: 20, backGroundArcWidth: 8, arcStartAngle: arcStartAngle, arcEndAngle: arcEndAngle, arcMargin: arcMargin)
+        }
+    
+}
+
+
+//Designable core code
+
 @IBDesignable public class KXThumbCircularProgressBar: UIView {
+    
+    
+    
+    
+    
+    // ring background properties
     
     @IBInspectable public var ringBackgroundColour: UIColor = UIColor(netHex: 0xaba8a8)
     @IBInspectable public var ringForegroundColour: UIColor = UIColor.green
     
+    
+    
+    
+    //This part is still under testing
     
     //	@IBInspectable public var backgroundImage: UIImage?
     
@@ -31,18 +77,41 @@ let π: CGFloat = CGFloat(M_PI)
     //   @IBInspectable var highLevelColor: UIColor       = UIColor.green
     
     // must be between [0,100]
+    
+    
+    
+    
+    //ring animate scale property 
+    
     @IBInspectable public var animateScale: Double = 0.0
+    
+    //width of the rings
     
     @IBInspectable public var foreGroundArcWidth: CGFloat   = 20
     @IBInspectable public var backGroundArcWidth: CGFloat   = 8
+    
+    
+    // turn this on to show image at the arc leading tip 
+    
     @IBInspectable public var isthumbImageAvailable: Bool = false
     @IBInspectable public var thumbImage: UIImage?
+    
+    // set the start and end engle here
+    
     @IBInspectable public var arcStartAngle: CGFloat = 120
     @IBInspectable public var arcEndAngle: CGFloat = 60
     
+    
+    
     @IBInspectable public var arcMargin: CGFloat = 75
     
-    // Display Image or Text
+    
+    
+    
+    
+    
+    
+    // turn this on to display  Image or Text at the center
     @IBInspectable public var showImage: Bool = false
     @IBInspectable public var image: UIImage?
     
@@ -56,14 +125,54 @@ let π: CGFloat = CGFloat(M_PI)
     @IBInspectable public var fontColor: UIColor = UIColor.black
     @IBInspectable public var valueMultiplier: Double = 100
     
-    let ringLayer = CAShapeLayer()
-    let thumbLayer = CALayer()
-    let imgView = UIImageView()
-    var thumbImageView = UIImageView()
-    var arcPath = UIBezierPath()
+    
+    
+    
+    
+    
+    private let ringLayer = CAShapeLayer()
+    private let thumbLayer = CALayer()
+    private let imgView = UIImageView()
+    private var thumbImageView = UIImageView()
+    private var arcPath = UIBezierPath()
+    
+    
     
     // Arc animation notify Delegate
     public var delegate: KXArcNotifyDelegate?
+    
+    
+    
+    
+ 
+    //designated init
+    
+    public init(ringWidth: CGFloat, ringHeight: CGFloat,backgroundColor: UIColor, ringBackgroundColour: UIColor,  ringForegroundColour: UIColor, foreGroundArcWidth: CGFloat, backGroundArcWidth: CGFloat, arcStartAngle: CGFloat,
+                arcEndAngle: CGFloat, arcMargin: CGFloat) {
+        
+        
+        self.ringBackgroundColour   =   ringBackgroundColour
+        self.ringForegroundColour   =   ringForegroundColour
+        self.foreGroundArcWidth     =   foreGroundArcWidth
+        self.backGroundArcWidth     =   backGroundArcWidth
+        self.arcStartAngle          =   arcStartAngle
+        self.arcEndAngle            =   arcEndAngle
+        self.arcMargin              =   arcMargin
+        
+        
+        super.init(frame: CGRect(x: 0, y: 0, width: ringWidth, height: ringHeight))
+        super.backgroundColor = backgroundColor
+        
+    }
+    
+    
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    
+    
     
     public override func draw(_ rect: CGRect) {
         
@@ -103,6 +212,7 @@ let π: CGFloat = CGFloat(M_PI)
     
     
     
+    
     private func backgroundArc() {
         
         // backGroundArcWidth = 5
@@ -123,11 +233,17 @@ let π: CGFloat = CGFloat(M_PI)
         path.stroke()
     }
     
+    
+    
+    
+    
     /**
      Code for animating the color on arc as well as the thumb slider
      
      - parameter loaderValue: the value passed to the animation code. Must be between 0 to 1
      */
+    
+    
     private func animateArc(loaderValue: CGFloat) {
         
         let center = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
@@ -175,6 +291,11 @@ let π: CGFloat = CGFloat(M_PI)
         ringLayer.add(animation, forKey: "animateArc")
     }
     
+    
+    
+    
+    // drawing center image 
+    
     func drawCenterImage() {
         
         let center = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
@@ -190,6 +311,9 @@ let π: CGFloat = CGFloat(M_PI)
         imgView.contentMode = .scaleAspectFit
         self.addSubview(imgView)
     }
+    
+    
+    //to draw the centre text
     
     func drawText(rectSize: CGSize) {
         
@@ -236,6 +360,11 @@ let π: CGFloat = CGFloat(M_PI)
         text.draw(in: unitRect)
     }
     
+    
+    
+    
+    //to fix the centre image
+    
     func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
         let size = image.size
         
@@ -261,6 +390,10 @@ let π: CGFloat = CGFloat(M_PI)
         
         return newImage!
     }
+    
+    
+    
+    
 }
 
 extension KXThumbCircularProgressBar: CAAnimationDelegate {
