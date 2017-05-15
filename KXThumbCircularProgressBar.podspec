@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
 
 
   s.name         = "KXThumbCircularProgressBar"
-  s.version      = "0.0.6"
+  s.version      = "0.0.7"
   s.summary      = "Circular progress bar with a customizable thumb pointer image"
 
   s.description  = "Circular progress bar with an image at the progress end which is customizable along with other features."
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, "8.0"
 
-  s.source       = { :git => "https://github.com/khanxc/KXThumbCircularProgressBar.git", :tag => "0.0.6" }
+  s.source       = { :git => "https://github.com/khanxc/KXThumbCircularProgressBar.git", :tag => "0.0.7" }
 
 
 
