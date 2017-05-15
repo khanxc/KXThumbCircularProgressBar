@@ -13,7 +13,6 @@ Customise your own thumb images to the Circular progress bar.
 
 ![Alt Text](https://github.com/khanxc/KXThumbCircularProgressBar/blob/master/Example/KXThumbCircular-Example/KXThumbCircular-Example/gifs/animatingText.gif)
 
-![Alt Text](https://github.com/khanxc/KXThumbCircularProgressBar/blob/master/Example/KXThumbCircular-Example/KXThumbCircular-Example/gifs/feature4.gif)
 
 
 
