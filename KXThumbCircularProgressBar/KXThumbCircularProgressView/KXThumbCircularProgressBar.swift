@@ -63,7 +63,7 @@ extension KXThumbCircularProgressBar {
     //ring animate scale property
     
     @IBInspectable public var animateScale: Double = 0.0
-    
+    @IBInspectable public var animateDuration: Double = 2.0
     //width of the rings
     
     @IBInspectable public var foreGroundArcWidth: CGFloat   = 20
@@ -155,7 +155,7 @@ extension KXThumbCircularProgressBar {
         
         if showText {
             drawText(rectSize: CGSize(width: rect.width, height: rect.height))
-            self.countFrom(fromValue: 0.0, to: Float(self.animateScale * 100), withDuration: 2.0)
+            self.countFrom(fromValue: 0.0, to: Float(self.animateScale * 100), withDuration: animateDuration)
         }
         
         let center = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
@@ -235,7 +235,7 @@ extension KXThumbCircularProgressBar {
             ringLayer.addSublayer(thumbLayer)
             
             let pathAnimation: CAKeyframeAnimation = CAKeyframeAnimation(keyPath: "position")
-            pathAnimation.duration = 2
+            pathAnimation.duration = animateDuration
             pathAnimation.path = thumbPath.cgPath;
             pathAnimation.repeatCount = 0
             pathAnimation.calculationMode = kCAAnimationPaced
@@ -247,7 +247,7 @@ extension KXThumbCircularProgressBar {
         
         let animation = CABasicAnimation(keyPath: "strokeEnd")
         animation.delegate = self
-        animation.duration = 2
+        animation.duration = animateDuration
         animation.fromValue = 0
         animation.toValue = loaderValue // changed here
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
