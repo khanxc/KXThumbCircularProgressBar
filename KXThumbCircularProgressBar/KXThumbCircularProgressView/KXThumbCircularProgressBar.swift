@@ -7,7 +7,6 @@
 import Foundation
 import UIKit
 
-
 //optional notification protocols
 
 @objc public protocol KXArcNotifyDelegate {
@@ -16,56 +15,39 @@ import UIKit
     @objc optional func arcAnimationDidStop()
 }
 
-
 // Nothing to see here , it is just a Pi
 
 let π: CGFloat = CGFloat(M_PI)
 
-
-
 // convenicence inits
 
-
 extension KXThumbCircularProgressBar {
-
+    
     public convenience init(ringWidth: CGFloat, ringHeight: CGFloat) {
         
         self.init(ringWidth: ringWidth, ringHeight: ringHeight,backgroundColor: UIColor.clear, ringBackgroundColour: UIColor(netHex: 0xaba8a8),  ringForegroundColour: UIColor.green, foreGroundArcWidth: 20, backGroundArcWidth: 8, arcStartAngle: 120, arcEndAngle: 60, arcMargin: 75)
-        
-        }
-    
+    }
     
     public convenience init(ringWidth: CGFloat, ringHeight: CGFloat, backgroundColor: UIColor, ringBackgroundColour: UIColor, ringForegroundColour: UIColor) {
         
-         self.init(ringWidth: ringWidth, ringHeight: ringHeight, backgroundColor: backgroundColor, ringBackgroundColour: ringBackgroundColour,  ringForegroundColour: ringForegroundColour, foreGroundArcWidth: 20, backGroundArcWidth: 8, arcStartAngle: 120, arcEndAngle: 60, arcMargin: 75)
-
-        }
+        self.init(ringWidth: ringWidth, ringHeight: ringHeight, backgroundColor: backgroundColor, ringBackgroundColour: ringBackgroundColour,  ringForegroundColour: ringForegroundColour, foreGroundArcWidth: 20, backGroundArcWidth: 8, arcStartAngle: 120, arcEndAngle: 60, arcMargin: 75)
+    }
     
     
-    public convenience init(ringWidth: CGFloat, ringHeight: CGFloat,arcStartAngle: CGFloat,
-                            arcEndAngle: CGFloat, arcMargin: CGFloat) {
+    public convenience init(ringWidth: CGFloat, ringHeight: CGFloat,arcStartAngle: CGFloat, arcEndAngle: CGFloat, arcMargin: CGFloat) {
         
         self.init(ringWidth: ringWidth, ringHeight: ringHeight,backgroundColor: UIColor.clear, ringBackgroundColour: UIColor(netHex: 0xaba8a8),  ringForegroundColour: UIColor.green, foreGroundArcWidth: 20, backGroundArcWidth: 8, arcStartAngle: arcStartAngle, arcEndAngle: arcEndAngle, arcMargin: arcMargin)
-        }
-    
+    }
 }
-
 
 //Designable core code
 
 @IBDesignable public class KXThumbCircularProgressBar: UIView {
     
-    
-    
-    
-    
     // ring background properties
     
     @IBInspectable public var ringBackgroundColour: UIColor = UIColor(netHex: 0xaba8a8)
     @IBInspectable public var ringForegroundColour: UIColor = UIColor.green
-    
-    
-    
     
     //This part is still under testing
     
@@ -78,10 +60,7 @@ extension KXThumbCircularProgressBar {
     
     // must be between [0,100]
     
-    
-    
-    
-    //ring animate scale property 
+    //ring animate scale property
     
     @IBInspectable public var animateScale: Double = 0.0
     
@@ -91,7 +70,7 @@ extension KXThumbCircularProgressBar {
     @IBInspectable public var backGroundArcWidth: CGFloat   = 8
     
     
-    // turn this on to show image at the arc leading tip 
+    // turn this on to show image at the arc leading tip
     
     @IBInspectable public var isthumbImageAvailable: Bool = false
     @IBInspectable public var thumbImage: UIImage?
@@ -100,21 +79,11 @@ extension KXThumbCircularProgressBar {
     
     @IBInspectable public var arcStartAngle: CGFloat = 120
     @IBInspectable public var arcEndAngle: CGFloat = 60
-    
-    
-    
     @IBInspectable public var arcMargin: CGFloat = 75
-    
-    
-    
-    
-    
-    
     
     // turn this on to display  Image or Text at the center
     @IBInspectable public var showImage: Bool = false
     @IBInspectable public var image: UIImage?
-    
     @IBInspectable public var showText: Bool = false
     @IBInspectable public var valueFontName: String = "HelveticaNeue"
     @IBInspectable public var valueFontSize: CGFloat = 25.0
@@ -126,30 +95,39 @@ extension KXThumbCircularProgressBar {
     @IBInspectable public var valueMultiplier: Double = 100
     
     
-    
-    
-    
-    
     private let ringLayer = CAShapeLayer()
     private let thumbLayer = CALayer()
     private let imgView = UIImageView()
     private var thumbImageView = UIImageView()
     private var arcPath = UIBezierPath()
-    
-    
+    private let textLabel = UILabel()
     
     // Arc animation notify Delegate
     public var delegate: KXArcNotifyDelegate?
-    
-    
-    
-    
- 
+
+    // TextAnimation
+    private var start: Float = 0.0
+    private var end: Float = 0.0
+    private var timer: Timer?
+    private var progress: TimeInterval!
+    private var lastUpdate: TimeInterval!
+    private var duration: TimeInterval!
+    private var countingType: Float!
+    private var animationType: UIViewAnimationCurve!
+    private let kCounterRate: Float = 3.0
+
+    private var currentValue: Float {
+        if (progress >= duration) {
+            return end
+        }
+        let percent = Float(progress / duration)
+        let update = updateCounter(t: percent)
+        return start + (update * (end - start));
+    }
+
     //designated init
     
-    public init(ringWidth: CGFloat, ringHeight: CGFloat,backgroundColor: UIColor, ringBackgroundColour: UIColor,  ringForegroundColour: UIColor, foreGroundArcWidth: CGFloat, backGroundArcWidth: CGFloat, arcStartAngle: CGFloat,
-                arcEndAngle: CGFloat, arcMargin: CGFloat) {
-        
+    public init(ringWidth: CGFloat, ringHeight: CGFloat,backgroundColor: UIColor, ringBackgroundColour: UIColor,  ringForegroundColour: UIColor, foreGroundArcWidth: CGFloat, backGroundArcWidth: CGFloat, arcStartAngle: CGFloat, arcEndAngle: CGFloat, arcMargin: CGFloat) {
         
         self.ringBackgroundColour   =   ringBackgroundColour
         self.ringForegroundColour   =   ringForegroundColour
@@ -159,20 +137,14 @@ extension KXThumbCircularProgressBar {
         self.arcEndAngle            =   arcEndAngle
         self.arcMargin              =   arcMargin
         
-        
         super.init(frame: CGRect(x: 0, y: 0, width: ringWidth, height: ringHeight))
         super.backgroundColor = backgroundColor
-        
     }
-    
     
     required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
+        //        fatalError("init(coder:) has not been implemented")
     }
-    
-    
-    
-    
     
     public override func draw(_ rect: CGRect) {
         
@@ -183,6 +155,7 @@ extension KXThumbCircularProgressBar {
         
         if showText {
             drawText(rectSize: CGSize(width: rect.width, height: rect.height))
+            self.countFrom(fromValue: 0.0, to: Float(self.animateScale * 100), withDuration: 2.0)
         }
         
         let center = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
@@ -209,10 +182,6 @@ extension KXThumbCircularProgressBar {
         animateArc(loaderValue: CGFloat(self.animateScale)) // changed here
     }
     
-    
-    
-    
-    
     private func backgroundArc() {
         
         // backGroundArcWidth = 5
@@ -233,16 +202,11 @@ extension KXThumbCircularProgressBar {
         path.stroke()
     }
     
-    
-    
-    
-    
     /**
      Code for animating the color on arc as well as the thumb slider
      
      - parameter loaderValue: the value passed to the animation code. Must be between 0 to 1
      */
-    
     
     private func animateArc(loaderValue: CGFloat) {
         
@@ -291,10 +255,7 @@ extension KXThumbCircularProgressBar {
         ringLayer.add(animation, forKey: "animateArc")
     }
     
-    
-    
-    
-    // drawing center image 
+    // drawing center image
     
     func drawCenterImage() {
         
@@ -311,7 +272,6 @@ extension KXThumbCircularProgressBar {
         imgView.contentMode = .scaleAspectFit
         self.addSubview(imgView)
     }
-    
     
     //to draw the centre text
     
@@ -330,38 +290,76 @@ extension KXThumbCircularProgressBar {
             let unit = NSAttributedString(string: self.UnitString, attributes: unitAttributes)
             text.append(unit)
         }
-
+        
         let valueSize = ("\(Int(value))" as NSString).size(attributes: valueFontAttributes)
         let unitSize = text.size()
         let centerWidth = valueSize.width
         let centerHeight = valueSize.height
         
-        let textLabel = UILabel()
         textLabel.frame.size = CGSize(width: valueSize.width, height: valueSize.height)
         textLabel.center = CGPoint(x: (bounds.width/2) - (centerWidth / 2), y: (bounds.height/2) - (centerHeight / 2))
         textLabel.font = UIFont(name: self.valueFontName, size: self.valueFontSize == -1 ? rectSize.height/5 : self.valueFontSize)
-        textLabel.text = "\(Int(value)) "
         textLabel.textColor = self.fontColor
         self.addSubview(textLabel)
         
-        let duration: Double = 2.0 //seconds
-        DispatchQueue.global().async {
-            for i in 0 ..< (Int(value) + 1) {
-                let sleepTime = UInt32(duration/Double(value) * 280000.0)
-                usleep(sleepTime)
-                DispatchQueue.main.async {
-                    textLabel.text = "\(i)"
-                }
-            }
-        }
         
         // unit string draw rect
         let unitRect = CGRect(x: textLabel.frame.origin.x + textLabel.frame.size.width + 5, y: textLabel.frame.origin.y + (textLabel.frame.size.height - unitSize.height - 3), width: unitSize.width, height: unitSize.height)
         text.draw(in: unitRect)
     }
     
+    public func countFrom(fromValue: Float, to toValue: Float, withDuration duration: TimeInterval) {
+        
+        // Set values
+        self.start = fromValue
+        self.end = toValue
+        self.duration = duration
+        self.animationType = UIViewAnimationCurve.easeOut
+        self.progress = 0.0
+        self.lastUpdate = NSDate.timeIntervalSinceReferenceDate
+        
+        // Invalidate and nullify timer
+        killTimer()
+        
+        // Handle no animation
+        if (duration == 0.0) {
+            updateText(value: toValue)
+            return
+        }
+        
+        // Create timer
+        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(self.updateValue), userInfo: nil, repeats: true)
+    }
     
+    func updateText(value: Float) {
+        textLabel.text = "\(Int(value))"
+    }
     
+    func updateValue() {
+        
+        // Update the progress
+        let now = NSDate.timeIntervalSinceReferenceDate
+        progress = progress + (now - lastUpdate)
+        lastUpdate = now
+        
+        // End when timer is up
+        if (progress >= duration) {
+            killTimer()
+            progress = duration
+        }
+        
+        updateText(value: currentValue)
+        
+    }
+    
+    func killTimer() {
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    func updateCounter(t: Float) -> Float {
+        return 1.0 - powf((1.0 - t), kCounterRate)
+    }
     
     //to fix the centre image
     
